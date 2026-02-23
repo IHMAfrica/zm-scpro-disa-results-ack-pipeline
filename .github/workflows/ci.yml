@@ -3,6 +3,9 @@ name: CI Build and Publish JAR Release
 on:
   pull_request:
     types: [opened, reopened, synchronize]
+  push:
+    branches:
+      - main
 
 jobs:
   build-and-publish-jar:
@@ -18,7 +21,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: "17"
 
       - name: Cache Gradle
         uses: actions/cache@v4
